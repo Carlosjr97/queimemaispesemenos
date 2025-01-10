@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queime Mais, Pese Menos</title>
+    <link rel="icon" href="./img/logo.png" type="image/x-icon">
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('./img/img1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            font-size: 3em;
+            text-align: center;
+            margin: 0 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+
+        a {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 2s ease-out;
+        }
+      
+
+
+      
+
+        @keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* Começa 50px abaixo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina na posição original */
+    }
+}
+
+img {
+    max-width: 35%;
+    height: auto;
+    border: none;
+    cursor: pointer;
+    transition: transform 1s;
+    animation: slideUp 1.5s ease-out; /* Aplica a animação */
+}
+
+   
+
+        .price {
+            max-width: 15%;
+            height: auto;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .price{
+                max-width: 38%;
+            }
+
+            img {
+                max-width: 30%;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    <h1>Pronto para transformar seu corpo e sua vida?</h1>
+    <img class="price" src="./img/price.png" alt="price">
+    
+    <a href="https://wa.me/5516981267549
+    " target="_blank">
+        <img src="./img/click.png" alt="Clique para saber mais">
+    </a>
+    
+</body>
+</html>
+
+
