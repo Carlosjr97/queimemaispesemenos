@@ -1,0 +1,156 @@
+/* Reset de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do body */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('./img/FOTO1.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Seção de compra */
+.buy-now {
+    margin-top: 100px;
+}
+
+.buy-now h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: whitesmoke;
+    text-shadow: 2px 2px 0px #4B1224, -2px -2px 0px #4B1224, 2px -2px 0px #4B1224, -2px 2px 0px #4B1224;
+}
+
+.buy-now p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Botão de compra */
+.buy-button {
+    display: inline-block;
+    background-color: #27A93B;
+    color: white;
+    padding: 15px 25px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(255, 64, 129, 0.3);
+    transition: transform 0.3s, background-color 0.3s;
+    margin-top: 150px;
+}
+
+.buy-button:hover {
+    background-color: #1E9A30;
+    transform: translateY(-5px);
+}
+
+/* Estilo do preço animado */
+.price {
+    width: 200px;
+    animation: bounce 2s ease-in-out infinite;
+    margin-top: -230px;
+}
+
+/* Animação */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* Estilos do título */
+h1 {
+    font-size: 40px;
+    background-color: #02BA0F;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilo do subtítulo */
+h4 {
+    background-color: white;
+    font-size: 17px;
+    color: #000;
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .buy-now h2 {
+        font-size: 30px;
+    }
+
+    .buy-button {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
+    .price {
+        width: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .buy-now {
+        margin-top: 50px;
+    }
+
+    .buy-now h2 {
+        font-size: 28px;
+    }
+
+    .buy-button {
+        font-size: 16px;
+        padding: 10px 18px;
+    }
+
+    .price {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .buy-now {
+        margin-top: 30px;
+    }
+
+    .buy-now h2 {
+        font-size: 24px;
+    }
+
+    .buy-button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .price {
+        width: 150px;
+        margin-top: -170px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h4 {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
