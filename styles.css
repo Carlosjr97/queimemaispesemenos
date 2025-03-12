@@ -133,6 +133,7 @@ h4 {
 
     .buy-now h2 {
         font-size: 24px;
+        margin-top: 120px;
     }
 
     .buy-button {
@@ -141,8 +142,8 @@ h4 {
     }
 
     .price {
-        width: 190px;
-        margin-top: -150px;
+        width: 130px;
+        margin-top: -190px;
     }
 
     h1 {
