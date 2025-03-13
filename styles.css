@@ -139,6 +139,7 @@ h4 {
     .buy-button {
         font-size: 14px;
         padding: 10px 15px;
+        margin-top: 150px;
     }
 
     .price {
@@ -154,4 +155,48 @@ h4 {
         font-size: 14px;
         padding: 5px;
     }
+    
 }
+
+
+.container1 {
+    top: -370px;
+    right: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.balao {
+    width: 150px;
+    animation: fala 1s ease-in-out forwards;
+}
+.texto {
+    position: absolute;
+    top: 7px;
+    left: 2px;
+    width: 145px;
+    font-size: 8.3px;
+    color: #000;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fala 1s ease-in-out forwards;
+}
+@keyframes fala {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+  
+}
+
+
+
