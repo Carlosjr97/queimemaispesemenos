@@ -25,10 +25,13 @@ function comprar() {
     })
     .then(data => {
       pixDiv.innerHTML = `
-        <p><strong>Escaneie o Pix:</strong></p>
-        <img src="data:image/png;base64,${data.qr_code_base64}">
-        <p>A planilha será enviada automaticamente após o pagamento.</p>
-      `;
+  <p><strong>Copie o código Pix abaixo:</strong></p>
+  <textarea id="pixCode" readonly style="width:100%; height:120px;">
+${data.qr_code}
+  </textarea>
+  <button onclick="copiarPix()">Copiar código Pix</button>
+  <p>A planilha será enviada automaticamente após o pagamento.</p>
+`;
     })
     .catch(() => {
       alert("Erro ao gerar Pix. Tente novamente.");
@@ -38,4 +41,5 @@ function comprar() {
   }
 
   
+
 
