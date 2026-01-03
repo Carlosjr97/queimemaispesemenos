@@ -14,7 +14,7 @@ function comprar() {
     botao.disabled = true;
     botao.innerText = "Gerando Pix...";
   
-    fetch("https://backend-xuq5.onrender.com", {
+    fetch("https://backend-xuq5.onrender.com/criar-pagamento", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({ email })
@@ -38,3 +38,4 @@ function comprar() {
   }
 
   
+
