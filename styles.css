@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* CONTAINER PRINCIPAL */
+  .container {
+    width: 100%;
+    max-width: 420px;
+    margin: 20px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  
+  /* TÍTULO */
+  h1 {
+    color: #e53935;
+    margin-bottom: 10px;
+    font-size: 26px;
+  }
+  
+  /* SUBTÍTULO */
+  .subtitulo {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  
+  /* BENEFÍCIOS */
+  .beneficios {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .beneficios p {
+    margin: 6px 0;
+    font-size: 14px;
+  }
+  
+  /* PREÇO */
+  .preco {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .preco span {
+    font-size: 32px;
+    font-weight: bold;
+    color: #00c853;
+  }
+  
+  /* INPUT */
+  input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  
+  /* BOTÃO */
+  button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(45deg, #00c853, #00e676);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,200,83,0.4);
+  }
+  
+  /* PIX */
+  #pix {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* SEGURANÇA */
+  .seguranca {
+    font-size: 12px;
+    color: #777;
+    margin-top: 10px;
+  }
+  
+  /* 📱 CELULARES PEQUENOS */
+  @media (max-width: 360px) {
+    h1 {
+      font-size: 22px;
+    }
+  
+    .preco span {
+      font-size: 26px;
+    }
+  
+    button {
+      font-size: 15px;
+      padding: 14px;
+    }
+  
+    input {
+      font-size: 13px;
+      padding: 12px;
+    }
+  }
+  
+  /* 📱 CELULARES MÉDIOS */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 24px;
+    }
+  
+    .subtitulo {
+      font-size: 14px;
+    }
+  }
+  
+  /* 💻 TELAS MAIORES / TABLETS */
+  @media (min-width: 768px) {
+    .container {
+      max-width: 460px;
+    }
+  
+    h1 {
+      font-size: 30px;
+    }
+  
+    .subtitulo {
+      font-size: 16px;
+    }
+  }
+  
