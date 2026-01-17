@@ -1,53 +1,145 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Queime mais, pese menos!</title>
-  <link rel="icon" href="./img/fire.png" type="image/x-icon">
-  <link rel="stylesheet" href="styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11546053541"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-11546053541');
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Melhor Versão | Planilha de Treino</title>
+    <link rel="icon" href="./img/fire.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
 <section class="container">
-  <h1>🔥 Transforme seu corpo</h1>
+    <h1>✨ Sua Melhor Versão</h1>
+    <p class="subtitulo">
+        O método prático para transformar seu corpo com musculação focada em <strong>emagrecimento feminino</strong>.
+    </p>
 
-  <p class="subtitulo">
-    Planilha de musculação feminina focada em <strong>emagrecimento</strong>, simples e eficiente
-  </p>
+    <div class="beneficios">
+        <p>🌸 Treinos rápidos para o dia a dia</p>
+        <p>🌸 Foco em bumbum, pernas e abdômen</p>
+        <p>🌸 Guia iniciante para queima de gordura</p>
+    </div>
 
-  <div class="beneficios">
-    <p>✅ Treinos femininos simples e objetivos</p>
-    <p>✅ Ideal para mulheres iniciantes</p>
-    <p>✅ Foco em definição e emagrecimento</p>
-  </div>
+    <div class="preco">
+        Invista em você por apenas <span>R$ 5,00</span>
+    </div>
 
-  <div class="preco">
-    Apenas <span>R$ 5,00</span>
-  </div>
+    <div class="input-group">
+        <label for="email" style="display: block; font-size: 11px; color: #ffb7d5; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+            Onde você quer receber sua planilha?
+        </label>
+        <input type="email" id="email" placeholder="Seu melhor e-mail aqui" required>
+    </div>
 
-  <input type="email" id="email" placeholder="Digite seu e-mail">
+    <button id="btnComprar">QUERO MINHA PLANILHA AGORA ✨</button>
 
-  <button id="btnComprar" onclick="comprar()">
-    Dar o primeiro passo agora 🔥
-  </button>
+    <div id="pix"></div>
 
-  <div id="pix"></div>
-  <p id="status"></p>
-
-  <p class="seguranca">🔒 Pagamento 100% seguro via Pix</p>
+    <p class="seguranca">🔒 Pagamento 100% seguro. Acesso enviado ao e-mail informado imediatamente após a confirmação.</p>
 </section>
 
-<script src="script.js"></script>
+<script>
+    const BACKEND_URL = "https://backend-xuq5.onrender.com";
+
+    // 1. ACORDAR O SERVIDOR (Wake-up) assim que a página carrega
+    window.addEventListener('load', () => {
+        console.log("Acordando servidor no Render...");
+        fetch(`${BACKEND_URL}/ping`).catch(() => {}); 
+    });
+
+    async function comprar() {
+        const emailInput = document.getElementById("email");
+        const pixDiv = document.getElementById("pix");
+        const botao = document.getElementById("btnComprar");
+        const email = emailInput.value.trim();
+
+        // Validação de e-mail
+        if (!email || !email.includes("@")) {
+            alert("Por favor, informe um e-mail válido para que possamos enviar sua planilha.");
+            emailInput.focus();
+            return;
+        }
+
+        // Feedback visual de carregamento
+        botao.disabled = true;
+        botao.innerText = "RESERVANDO SUA PLANILHA...";
+        botao.style.opacity = "0.7";
+
+        // Caso o Render demore para acordar
+        const slowTimeout = setTimeout(() => {
+            if(botao.disabled) botao.innerText = "QUASE LÁ... GERANDO SEU PIX";
+        }, 6000);
+
+        try {
+            const response = await fetch(`${BACKEND_URL}/criar-pagamento`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) throw new Error(data.erro || "Erro no servidor");
+
+            clearTimeout(slowTimeout);
+            botao.innerText = "PRONTINHO! ✨";
+            
+            // Renderiza o Pix com o seu estilo feminino
+            pixDiv.innerHTML = `
+                <div style="animation: fadeIn 0.5s ease; background: rgba(255,105,180,0.1); padding: 20px; border-radius: 15px; border: 1px solid #ff69b4; margin-top: 25px;">
+                    <p style="color:#ffb7d5; font-size:13px; margin-bottom:12px; font-weight: 600;">
+                        FALTA POUCO! 💖
+                    </p>
+                    <p style="color:#fff; font-size:12px; margin-bottom:15px; line-height: 1.4;">
+                        Copie o código abaixo para pagar via Pix no seu banco.
+                    </p>
+                    
+                    <textarea id="pixCode" readonly style="width:100%; height:100px; margin-bottom: 15px; background: rgba(0,0,0,0.4); color: #ffb7d5; border: 1px solid rgba(255,153,204,0.3); border-radius: 8px; padding: 10px; font-size: 11px; font-family: monospace; resize: none;">${data.qr_code}</textarea>
+                    
+                    <button type="button" onclick="copiarPix()" id="btnCopiar" style="background: #fff; color: #ff69b4; padding: 12px; font-size: 12px; border-radius: 8px; width: 100%; font-weight: bold; border: none; cursor: pointer;">
+                        COPIAR CÓDIGO PIX
+                    </button>
+
+                    <p style="color:#ffffff; font-size:11px; margin-top:15px; line-height:1.5; padding: 10px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        🌸 <strong>Importante:</strong> Após o pagamento, o link da planilha será enviado automaticamente para o e-mail: <br><strong>${email}</strong>
+                    </p>
+                </div>
+            `;
+
+        } catch (error) {
+            console.error(error);
+            alert("Ocorreu um erro ao gerar o Pix. Por favor, tente novamente.");
+            botao.disabled = false;
+            botao.style.opacity = "1";
+            botao.innerText = "QUERO MINHA PLANILHA AGORA ✨";
+        }
+    }
+
+    // Vincular evento de clique
+    document.getElementById("btnComprar").addEventListener("click", comprar);
+
+    function copiarPix() {
+        const textarea = document.getElementById("pixCode");
+        const btn = document.getElementById("btnCopiar");
+        
+        textarea.select();
+        textarea.setSelectionRange(0, 99999); // Para celulares
+        
+        navigator.clipboard.writeText(textarea.value).then(() => {
+            const originalText = btn.innerText;
+            btn.innerText = "COPIADO COM SUCESSO! ✅";
+            btn.style.background = "#d4ffda";
+            btn.style.color = "#155724";
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = "#fff";
+                btn.style.color = "#ff69b4";
+            }, 3000);
+        });
+    }
+</script>
+
 </body>
 </html>
