@@ -1,152 +1,107 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@400;600&display=swap');
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  background: radial-gradient(circle at top, #0f2027, #000);
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #2d0b1e, #0a0a0a);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
 }
 
-/* CONTAINER */
 .container {
   width: 100%;
-  max-width: 420px;
-  padding: 30px;
-  border-radius: 16px;
+  max-width: 400px;
+  padding: 40px 30px;
+  border-radius: 24px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 255, 200, 0.2);
-  box-shadow: 
-    0 0 25px rgba(0, 255, 200, 0.15),
-    inset 0 0 20px rgba(0, 255, 200, 0.05);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 105, 180, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-/* TÍTULO */
 h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 26px;
-  color: #00ffc8;
+  font-size: 24px;
+  color: #ff99cc;
   margin-bottom: 10px;
-  text-shadow: 0 0 15px rgba(0, 255, 200, 0.6);
+  text-shadow: 0 0 10px rgba(255, 153, 204, 0.5);
 }
 
-/* SUBTÍTULO */
 .subtitulo {
-  color: #ddd;
+  color: #efefef;
   font-size: 14px;
-  margin-bottom: 22px;
-}
-
-/* BENEFÍCIOS */
-.beneficios {
-  text-align: left;
-  margin-bottom: 20px;
+  line-height: 1.5;
+  margin-bottom: 25px;
 }
 
 .beneficios p {
-  margin: 6px 0;
-  font-size: 14px;
-  color: #b9fff2;
+  margin: 8px 0;
+  font-size: 13px;
+  color: #ffd1e8;
+  text-align: left;
 }
 
-/* PREÇO */
 .preco {
-  font-family: 'Orbitron', sans-serif;
-  margin-bottom: 18px;
+  margin: 20px 0;
   color: #fff;
+  font-size: 14px;
 }
 
 .preco span {
-  font-size: 34px;
+  font-size: 38px;
   font-weight: 600;
-  color: #00ff88;
-  text-shadow: 0 0 10px rgba(0,255,136,0.8);
+  color: #ff69b4;
+  display: block;
+  text-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
 }
 
-/* INPUT */
 input {
   width: 100%;
-  padding: 14px;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  border: none;
-  background: rgba(0,0,0,0.6);
-  color: #00ffc8;
-  font-size: 14px;
-  outline: none;
-  box-shadow: inset 0 0 10px rgba(0,255,200,0.2);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 153, 204, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-input::placeholder {
-  color: #aaa;
-}
-
-/* BOTÃO */
 button {
   width: 100%;
-  padding: 16px;
-  border-radius: 10px;
+  padding: 18px;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
-  font-size: 16px;
-  font-family: 'Orbitron', sans-serif;
-  color: #000;
-  background: linear-gradient(90deg, #00ffc8, #00ff88);
-  box-shadow:
-    0 0 20px rgba(0,255,200,0.6),
-    0 0 40px rgba(0,255,200,0.3);
-  transition: all 0.25s ease;
-  position: relative;
-  overflow: hidden;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #fff;
+  background: linear-gradient(45deg, #ff69b4, #da70d6);
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+  transition: 0.3s;
 }
 
 button:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 0 25px rgba(0,255,200,0.9),
-    0 0 60px rgba(0,255,200,0.6);
-}
-
-/* ANIMAÇÃO DE ENERGIA */
-button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-  animation: energia 2.5s infinite;
-}
-
-@keyframes energia {
-  0% { left: -100%; }
-  50% { left: 100%; }
-  100% { left: 100%; }
-}
-
-/* PIX */
-#pix {
-  margin-top: 20px;
-  color: #e0fff9;
-  font-size: 14px;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(255, 105, 180, 0.6);
 }
 
 #pix textarea {
-  background: rgba(0,0,0,0.7);
-  color: #00ffcc;
-  border: none;
-  border-radius: 8px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffb7d5;
+  border: 1px solid rgba(255, 153, 204, 0.4);
+  border-radius: 10px;
   padding: 10px;
-  box-shadow: inset 0 0 10px rgba(0,255,200,0.3);
+  box-sizing: border-box;
+  font-family: monospace;
 }
 
-/* SEGURANÇA */
 .seguranca {
-  margin-top: 12px;
-  font-size: 12px;
-  color: #9fffe7;
+  margin-top: 20px;
+  font-size: 11px;
+  color: #888;
 }
